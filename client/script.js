@@ -83,7 +83,7 @@ const handleSubmit = async (e) => {
     loader(messageDiv)
 
     //Fetch data from server using user input
-    const response = await fetch('http://localhost:5000', {
+    const response = await fetch('https://moxied-ai.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
