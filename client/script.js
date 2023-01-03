@@ -77,7 +77,7 @@ const handleSubmit = async (e) => {
     chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
     chatContainer.scrollTop = chatContainer.scrollHeight;
-
+    
     const messageDiv = document.getElementById(uniqueId);
 
     loader(messageDiv)
@@ -100,7 +100,8 @@ const handleSubmit = async (e) => {
         const data = await response.json();
         const parsedData = data.bot.trim();
 
-        console.log({parsedData})
+        
+
         typeText(messageDiv, parsedData);
     } else {
         const err = await response.text();
