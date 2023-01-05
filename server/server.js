@@ -45,3 +45,5 @@ app.post('/', async (req, res) => {
     res.status(300).send(error || 'Oof, That did not go as planned😢');
   }
 })
+
+app.listen(5000, () => console.log('AI server started on https://moxied-ai.onrender.com'))
