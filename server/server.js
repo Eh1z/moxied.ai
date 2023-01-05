@@ -15,13 +15,13 @@ const openai = new OpenAIApi(configuration);
 const app = express()
 app.use(cors())
 app.use(express.json())
-/*
+
 app.get('/', async (req, res) => {
   res.status(200).send({
     message: 'Hello from Godsent Ehiz!'
   })
 })
-*/
+
 app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
