@@ -17,11 +17,6 @@ import {
     Settings2,  
  } from "lucide-react";
 
-const montserrat = Montserrat({ 
-    weight: "600", 
-    subsets: ["latin"] 
-});
-
 const routes = [
     {
     label: 'Dashboard',
@@ -83,7 +78,7 @@ const Sidebar = () => {
                     src='/logo.png'
                     />
                 </div>
-                <div className={cn("text-2xl font-bold", montserrat.className)}>
+                <div className="text-2xl font-bold">
                     Moxied
                 </div>
             </Link>

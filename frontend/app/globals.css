@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+
 html,
 body,
 :root{
   height: 100%;
+  font-family: 'Abel', sans-serif;
 }
  
 @layer base {

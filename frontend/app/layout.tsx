@@ -1,9 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
-import { Inter } from 'next/font/google'
+import { Abel } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const abel = Abel({ subsets: ["latin"], weight: ['400'] })
 
 export const metadata: Metadata = {
   title: 'Moxied AI',
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={abel.className}>{children}</body>
     </html>
     </ClerkProvider>
     

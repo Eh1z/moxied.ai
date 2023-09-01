@@ -17,48 +17,41 @@ import {
 const DashboardPage = () => {
 
     const tools = [
-        {
-            label: 'Dashboard',
-            icon: LayoutDashboard,
-            href: '/dashboard',
-            color: 'text-[#313BAC] ',
-            
-            },
-            {
-            label: 'Conversation',
-            icon: MessagesSquareIcon,
-            href: '/conversation',
-            color: 'text-[#313BAC] ',
-            
-            },
-            {
-                label: 'Code Generation',
-                icon: Code2Icon,
-                href: '/code',
-                color: 'text-[#313BAC] ',
-                
-            },
-            {
-                label: 'Image Generation',
-                icon: ImageIcon,
-                href: '/image',
-                color: 'text-[#313BAC] ',
-                
-            },
-            {
-                label: 'Video Generation',
-                icon: FileVideoIcon,
-                href: '/video',
-                color: 'text-[#313BAC] ',
-                
-            },
-            {
-                label: 'Music Generation',
-                icon: Music2Icon,
-                href: '/music',
-                color: 'text-[#313BAC] ',
-                
-            },
+    {
+    label: 'Conversation',
+    icon: MessagesSquareIcon,
+    href: '/conversation',
+    color: 'text-[#313BAC] ',
+    
+    },
+    {
+        label: 'Code Generation',
+        icon: Code2Icon,
+        href: '/code',
+        color: 'text-[#313BAC] ',
+        
+    },
+    {
+        label: 'Image Generation',
+        icon: ImageIcon,
+        href: '/image',
+        color: 'text-[#313BAC] ',
+        
+    },
+    {
+        label: 'Video Generation',
+        icon: FileVideoIcon,
+        href: '/video',
+        color: 'text-[#313BAC] ',
+        
+    },
+    {
+        label: 'Music Generation',
+        icon: Music2Icon,
+        href: '/music',
+        color: 'text-[#313BAC] ',
+        
+    },
 
     ]
 
