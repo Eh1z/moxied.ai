@@ -13,7 +13,6 @@ const DashboardLayout = ({
         </div>
 
         <main className="md:pl-64">
-            Dashboard page
             <Navbar/>
         </main>
     </div>

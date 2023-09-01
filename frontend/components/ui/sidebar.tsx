@@ -1,12 +1,21 @@
 "use client";
 
-
+import { usePathname } from 'next/navigation'
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, MessagesSquareIcon, ImageIcon, FileVideoIcon, Music2Icon } from "lucide-react";
+import { 
+    LayoutDashboard, 
+    MessagesSquareIcon, 
+    ImageIcon, 
+    FileVideoIcon, 
+    Music2Icon, 
+    Code2Icon,
+    Settings,
+    Settings2,  
+ } from "lucide-react";
 
 const montserrat = Montserrat({ 
     weight: "600", 
@@ -23,30 +32,45 @@ const routes = [
     {
     label: 'Conversation',
     icon: MessagesSquareIcon,
-    href: '/dashboard',
+    href: '/conversation',
     color: 'text-[#313BAC] ',
+    },
+    {
+        label: 'Code Generation',
+        icon: Code2Icon,
+        href: '/code',
+        color: 'text-[#313BAC] ',
     },
     {
         label: 'Image Generation',
         icon: ImageIcon,
-        href: '/dashboard',
+        href: '/image',
         color: 'text-[#313BAC] ',
     },
     {
         label: 'Video Generation',
         icon: FileVideoIcon,
-        href: '/dashboard',
+        href: '/video',
         color: 'text-[#313BAC] ',
     },
     {
         label: 'Music Generation',
         icon: Music2Icon,
-        href: '/dashboard',
+        href: '/music',
         color: 'text-[#313BAC] ',
+    },
+    {
+        label: 'Settings',
+        icon: Settings2,
+        href: '/settings',
+        color: 'text-black'
     },
 ];
 
 const Sidebar = () => {
+
+    const pathname = usePathname();
+
   return (
     <div className='space-y-4 py-4 flex flex-col h-full bg-[#3EDF2F8]'>
         <div className='px-3 py-2 flex-1'>
@@ -69,8 +93,11 @@ const Sidebar = () => {
                     <Link 
                     href={route.href}
                     key={route.href}
-                    className="text-sm group flex p-3 w-full justify-start font-medium cursor-pointer
-                    hover:text-[#313BAC] hover:bg-white rounded-lg transition"
+                    className={cn("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer   hover:text-[#313BAC] hover:bg-white rounded-lg transition", 
+                    pathname === route.href ?
+                    "text-[#313BAC] bg-white" :
+                    "text-black"
+                    )}
                     >
                         <div className="flex items-center flex-1">
                             <route.icon className={cn("w-5 h-5 mr-3", route.color)}/>

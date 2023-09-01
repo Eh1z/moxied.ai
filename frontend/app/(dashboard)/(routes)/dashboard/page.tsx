@@ -1,9 +1,8 @@
-import { UserButton } from '@clerk/nextjs'
+import React from 'react'
 
 const DashboardPage = () => {
   return (
-    <div>DashboardPage (Protected)
-    </div>
+    <div className='w-full z-80 bg-black'></div>
   )
 }
 
