@@ -20,7 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 const ConversationPage = () => {
 
-    const form = useForm< z.infer<typeof formSchema >>({
+    const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             prompt:""
@@ -71,9 +71,10 @@ const ConversationPage = () => {
                 Send
                 </Button>
             </form>
-        </Form>
-
-        
+        </Form>        
+    </div>
+    <div className='space-y-4 mt-4 '>
+        Message Content
     </div>
     </>
   )
