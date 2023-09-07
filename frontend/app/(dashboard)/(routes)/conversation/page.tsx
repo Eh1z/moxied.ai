@@ -9,16 +9,22 @@ import {
     FormItem 
 } from '@/components/ui/form';
 
+import axios from 'axios';
+import  ChatCompletionRequestMessage  from 'openai'
 import { Input } from '@/components/ui/input';
 import { MessagesSquareIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-
 import  HeadingComponent  from '@/components/ui/heading';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 const ConversationPage = () => {
+
+    const router = useRouter();
+    const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -29,7 +35,13 @@ const ConversationPage = () => {
 
     const isLoading = form.formState.isSubmitting;
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+        try {
+            console.log(values);
+        } catch (error: any) {
+            console.log(error);
+        } finally {
+            router.refresh();
+        }
     };
 
 
