@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/form';
 
 import axios from 'axios';
-import  ChatCompletionRequestMessage  from 'openai'
 import { Input } from '@/components/ui/input';
 import { MessagesSquareIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -24,7 +23,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 const ConversationPage = () => {
 
     const router = useRouter();
-    const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
+    const [messages, setMessages] = useState([])
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -36,8 +35,22 @@ const ConversationPage = () => {
     const isLoading = form.formState.isSubmitting;
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            console.log(values);
+            const userMessage = {
+                role: 'user',
+                content: values.prompt
+            };
+            const newMessages = [...messages, userMessage];
+
+            const response = await  axios.post("/api/conversation", {
+                messages: newMessages,
+            })
+
+            setMessages((current) => [])
+
+            form.reset();
+
         } catch (error: any) {
+            //Todo: pro plan modal
             console.log(error);
         } finally {
             router.refresh();
@@ -86,7 +99,13 @@ const ConversationPage = () => {
         </Form>        
     </div>
     <div className='space-y-4 mt-4 '>
-        Message Content
+        <div className='flex flex-col-reverse gap-y-4'>
+            {messages.map((message) => (
+                <div key={message.content}>
+                    {message.content}
+                </div>
+            ))}
+        </div>
     </div>
     </>
   )
